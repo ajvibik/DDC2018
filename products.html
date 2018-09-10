@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Digital Dimension Computers</title>
+<link href='http://fonts.googleapis.com/css?family=Lato:300,400|Crimson+Text' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="../assets/css/themify.css">
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <!-- Our Custom CSS -->
+    <link rel="stylesheet" href="../assets/css/sidenavStyles.css">
+    <!-- <link rel="stylesheet" href="../assets/css/style.css"> -->
+    <script type="text/javascript" src="../assets/js/vendor/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="../assets/js/vendor/bootstrap.min.js"></script>
+    <style>
+    body{
+        font-family: 'montserratlight', arial, sans-serif;
+    }
+    .navbar, #sidebar, .sidebar-header{
+        background:#5e5c58 !important;
+    }
+    #content{
+        padding:0px 0px !important;
+    }
+    #content .section{
+        padding: 10px 10px;
+        text-align: justify;
+        margin-left: 2em;
+        margin-right: 2em;
+    }
+    .navbar-nav li{
+        color: rgb(255, 255, 255);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-left: none;
+    border-top: none;
+    border-top: none;
+    text-decoration: none;
+    zoom: 1;
+    font-size: 13px;
+    border-bottom: none !important;
+    }
+    .navbar-nav li:after{
+                border: none !important;
+        font-family: 'themify';
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    }
+    #sidebarCollapse{
+        background:#6d7fcc;
+    }
+    #sidebar ul.menu li:hover ul.submenu{
+        display: block;
+              -webkit-animation: slide-down .5s ease-out;
+    }
+    #sidebar ul.menu li ul.submenu{
+        display: none;
+    }
+
+@-webkit-keyframes slide-down {
+      0% { opacity: 0;  }   
+    100% { opacity: 1;  }
+}
+@-moz-keyframes slide-down {
+      0% { opacity: 0; }   
+    100% { opacity: 1;  }
+}
+#sidebar{
+    position: fixed;
+    width: 18vw;
+    height: 100vh;
+}
+#content{
+    position: fixed;
+    width: 82vw;
+    height: 100vh;
+    left: 18em;
+}
+section{
+    overflow-y: scroll;
+    height: 80vh;
+}
+    </style>
+</head>
+
+<body ng-app="DDCApp" ng-controller="DDCCtrl">
+    <div class="wrapper">
+        <!-- Sidebar Holder -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h3><img src="../assets/images/logo.png" class="img-responsive"></h3>
+                <strong>DDC</strong>
+            </div>
+
+            <ul class="list-unstyled components">
+                <li class="active" ng-click="changeView('Networking')">
+                    <a href="#">
+                        <i class="glyphicon glyphicon-signal"></i>
+                        Networking
+                    </a>
+                </li>
+                <li ng-click="changeView('Security_Systems')">
+                    <a href="#">
+                        <i class="glyphicon glyphicon-lock"></i>
+                        Security Systems
+                    </a>
+                </li>
+                <li ng-click="changeView('storage_solutions')">
+                    <a href="#">
+                        <i class="glyphicon glyphicon-cloud"></i>
+                        storage solutions
+                    </a>
+                </li>
+                <li ng-click="changeView('ID_Cards_Printer')">
+                    <a href="#">
+                        <i class="glyphicon glyphicon-credit-card"></i>
+                        ID Cards Printing Machines
+                    </a>
+                </li>
+                <li ng-click="changeView('Interactive_Boards')">
+                    <a href="#">
+                        <i class="glyphicon glyphicon-pencil"></i>
+                        Interactive Boards
+                    </a>
+                </li>
+                <li ng-click="changeView('Scanners')">
+                    <a href="#">
+                        <i class="glyphicon glyphicon-eye-open"></i>
+                        Scanners
+                    </a>
+                </li>
+                <li ng-click="changeView('Telecommunication')">
+                    <a href="#">
+                        <i class="	glyphicon glyphicon-earphone"></i>
+                        Telecommunication
+                    </a>
+                </li>
+                <li ng-click="changeView('DeskAlert_Software')">
+                    <a href="#">
+                        <i class="glyphicon glyphicon-exclamation-sign"></i>
+                        DeskAlert Software
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Page Content Holder -->
+        <div id="content">
+
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+
+                    <div class="navbar-header">
+                        <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
+                            <i class="glyphicon glyphicon-align-left"></i>
+                        </button>
+                    </div>
+
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="../index.html">HOME</a></li>
+                            <li><a href="../index.html#client">CLIENTS</a></li>
+                            <li><a href="#">PRODUCTS</a></li>
+                            <li><a href="../pages/Infrastructure.html">INFRASTRUCTURE SOLUTIONS</a></li>
+                            <li><a href="../pages/ITServices.html">IT SERVICES</a></li>
+                            <li><a href="../index.html#contact">CONTACT</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+
+            <!-- Networking Page Content-->
+            <div class="section" ng-show="Networking">
+
+                <div class="row">
+                    <div class="col-md-7">
+                        <img src="../assets/images/products/networking/networking.png" class="img-responsive">
+                    </div>
+                    <div class="col-md-5">
+                        <h2>Network & Security Systems</h2>
+                        <p>DDC is your number one source for professional services and we surpass the competition, in not
+                            only price, but value as well.</p>
+                        <p>Every organization requires Networking & Security Solutions that can maintain a perfect balance
+                            between Information Accessibility and Data Security to compete with other fast-growing corporate
+                            entities. This is exactly what DDC provides! We bring a team of certifies networking and security
+                            experts along with tried and tested products from leading OEMs.</p>
+                    </div>
+                </div>
+
+                <div class="line"></div>
+
+                <h2>Switching and Routing</h2>
+                <p>Our wide range of quality networking products and security solutions brand us as the preferred partner
+                    for companies that need innovative solutions for challenging corporate environments. Our team of experts
+                    offers services such as designing, building, installing and managing wired as well as wireless networks
+                    for Local Area Networks (LAN) and Wide Area Networks (WAN). Our experience and the expertise to deliver
+                    a fast, secure and easy to manage network gives us the advantage to extend our services from corporate
+                    giants to an educational campus.Our wide range of data networking solutions, combined with our extensive
+                    experience in delivering the latest Converged and Unified Communications Technologies, brands us the
+                    preferred choice when it comes to Networking projects.</p>
+
+                <div class="line"></div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <h2>Data Centre Setup</h2>
+                        <p>DDC has been influential in the building of corporate data centers for companies in the financial
+                            and customer service industry. A good data center design addresses the need for unified computing,
+                            security, business continuity, storage and other critical architectures. We source quality products
+                            for power conditioning, cabling, air conditioning, stand by camera, standby power. DDC assures
+                            you of a data center that meets your design goals.</p>
+                    </div>
+                    <div class="col-md-6">
+                        <img src="../assets/images/products/networking/networking1.png" class="img-responsive">
+                    </div>
+                </div>
+
+                <div class="line"></div>
+
+                <h3>Information Security</h3>
+                <p>Securing networks, servers, notebooks and personal workstations is integral to our Information Security
+                    services. DDC has qualified CISS professionals who can evaluate the information security risks and suggest
+                    a plan to mitigate these risks. We offer a wide range of industry standard as well as innovative solutions
+                    to safeguard your information assets.</p>
+
+                <div class="line"></div>
+
+                <h3>Our data security services and solutions include</h3>
+                <div class="row">
+
+                    <div class="col-sm-6">
+                        <ul class="list-unstyled icon-list chevron-right">
+                            <li>Vulnerability Assessment and Mitigation</li>
+                            <li>Intrusion Protection Systems</li>
+                            <li>Anti-virus and Malware Protection</li>
+                            <li>Privilege Identity Management</li>
+                        </ul>
+
+                    </div>
+
+                    <div class="col-sm-6">
+                        <ul class="list-unstyled icon-list checkmark">
+                            <li>Unified Threat Management</li>
+                            <li>Content Filtering and Web Gateway Security</li>
+                            <li>Endpoint Protection</li>
+                            <li>Email Gateway Security</li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+            <!-- End Networking Page Content-->
+
+
+            <!-- Security Systems Page Content-->
+            <div class="section" ng-show="Security_Systems">
+                <div class="imageText col-sm-12 img-responsive">
+                    <img src="../assets/images/products/Security_Systems/Security Systems.jpg" alt="Norway" style="width:100%;" class="img-responsive">
+                    <div class="text-block">
+                        <div class="row">
+                            <h3>Ask yourself</h3>
+                            <div class="col-sm-12">
+                                <ul class="list-unstyled icon-list chevron-right">
+                                    <li>What’s on my network?</li>
+                                    <li>Can I limit mobile devices without limiting productivity or increasing security risks?</li>
+                                    <li>DDC can help you to find out how you can improve your end-to-end security across
+                                        your enterprise.</li>
+                                </ul>
+                                <p>DDC can help you to find out how you can improve your end-to-end security across your
+                                    enterprise.
+
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-5">
+                        <img src="../assets/images/products/Security_Systems/security.png" class="img-responsive">
+                    </div>
+                    <div class="col-md-7 ">
+                        <h2>Network Access Control</h2>
+                        <p>Businesses today embrace the idea of anywhere, anytime connectivity, but often ignore the need
+                            for secure network access control. Many employ a “laid back NAC” solution. Others choose the
+                            same vendor for security and network infrastructure. Both these approaches give the illusion
+                            of security, even compliance, but in reality, leave extensive security gaps.</p>
+                        <div class="line "></div>
+                        <h2>IT Compliance</h2>
+                        <p>Compliance is not an issue until it becomes the mother of all issues. IT compliance usually refers
+                            to two areas: how well a company follows its own rules (internal compliance), and how well a
+                            company follows the rules imposed on it by outside groups (external compliance). Both are important
+                            and can impose restrictions on a business.</p>
+                        <p>We have our expertise in assisting our clients to achieve global standards which define the requirements
+                            for an Information Security Management System (ISMS) by ensuring adequate and proportionate IT
+                            security controls. DDC accomplish this by excelling the below processes.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- End Security Systems Page Content-->
+
+
+            <!-- storage solutions Page Content-->
+            <div class="section" ng-show="storage_solutions ">
+
+                <div class="row ">
+                    <div class="col-md-7 ">
+                        <h2>Data Protection is an essential component</h2>
+                        <p>We are renowned in the industry for our data storage expertise, and have successfully delivered
+                            solutions within customers datacentres, hosted within DDC’s enterprise cloud, or a hybrid of
+                            the two. Working with technology from the world's leading manufacturers DDC delivers a range
+                            of highly flexible, available and secure data storage platforms for our customers.</p>
+                        <p>We enable our customers to reduce risk, reduce cost and most importantly deliver improved services.</p>
+                        <h3>Data Storage Solutions Portfolio</h3>
+                        <p> DDC is also one of the few Storage Integrators who can offer customers the option of moving part
+                            or all of their storage to the Cloud.</p>
+                    </div>
+                    <div class="col-md-5 ">
+                        <img src="../assets/images/products/storage/Storage-solutions2.jpg " class="img-thumbnail img-responsive ">
+                    </div>
+
+                </div>
+
+                <div class="line "></div>
+
+                <div class="row threeRow ">
+                    <div class="col-md-4 ">
+                        <img src="../assets/images/products/storage/C7000BMX_Front.png " class="img-responsive">
+                    </div>
+                    <div class="col-md-4 textCenter">
+                        <h3>Data Storage Solutions Portfolio</h3>
+                        <p> DDC is also one of the few Storage Integrators who can offer customers the option of moving part
+                            or all of their storage to the Cloud.</p>
+                        <h3>Primary Storage ( NAS & SAN )</h3>
+                        <p> Data storage underpins all aspects of IT service delivery. DDC help customers reduce complexity
+                            and cost across their storage environment, enhancing data protection and improving service levels.</p>
+
+                        <h3>Backup & Recovery</h3>
+                        <p> As data continues to grow in value and size, backup is becoming ever more challenging. DDC can
+                            help you take the pain out of backup and deliver faster restores and reduced backup windows at
+                            a lower cost.</p>
+
+
+                        <h3>Business Continuity</h3>
+                        <p>Work with DDC to deliver an extremely cost effective, reliable and risk free disaster recovery
+                            platform for your mission critical IT services.</p>
+                    </div>
+                    <div class="col-md-4">
+                        <img src="../assets/images/products/storage/C7000BMX_Back.png" class="img-responsive">
+                    </div>
+                </div>
+            </div>
+            <!-- End Networking Page Content-->
+
+
+
+            <!-- ID Cards Printer Page Content-->
+            <div class="section" ng-show="ID_Cards_Printer">
+
+                <div class="media">
+                    <span class="media-left">
+                        <img src="../assets/images/products/idCard/id card Javelin_J200i.jpg" alt="..." class="img-responsive">
+                    </span>
+                    <div class="media-body">
+                        <h2>ID printing machines</h2>
+                        <p>The first thing to clarify when discussing ID printing machines is that they’re much different
+                            than ordinary desktop printers. ID printing machines are printers designed specifically for the
+                            task of transforming PVC plastic cards into high-quality ID badges.</p>
+                        <p>Your typical ink-jet or laser printer is of no use for such an application. ID printing machines
+                            work as part of a system to achieve this task.</p>
+                        <p>That system includes the printing machine itself, a digital camera, and ID card software.</p>
+                        <p>ID printing machines work as part of a system to achieve this task. That system includes the printing
+                            machine itself, a digital camera, and ID card software.</p>
+                        <p>ID printers offer a variety of security options, and choosing the right machine depends on the
+                            specific needs of your organization.</p>
+                        <p>DDC carries ID printing machines from proven leaders in the industry.</p>
+                    </div>
+                </div>
+
+
+                <div class="line"></div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <h2>Data Centre Setup</h2>
+                        <p>DDC has been influential in the building of corporate data centers for companies in the financial
+                            and customer service industry. A good data center design addresses the need for unified computing,
+                            security, business continuity, storage and other critical architectures. We source quality products
+                            for power conditioning, cabling, air conditioning, stand by camera, standby power. DDC assures
+                            you of a data center that meets your design goals.</p>
+                    </div>
+                    <div class="col-md-6">
+                        <img src="../assets/images/products/idCard/Magicard_kaartprinter-Rio-Pro-PPC.jpg" class="img-responsive">
+                    </div>
+                </div>
+
+                <h4>Consider some of the following factors when exploring your choices in terms of ID printing machines:</h4>
+                <div class="row">
+
+                    <div class="col-sm-6">
+                        <ul class="list-unstyled icon-list chevron-right">
+                            <li>How many cards do you plan on printing per year?</li>
+                            <li>Will your cards require single-sided or double-sided printing?</li>
+                            <li>Do you expect your organization to grow in the future?</li>
+                            <li>Holographic over laminate</li>
+                        </ul>
+
+                    </div>
+
+                    <div class="col-sm-6">
+                        <ul class="list-unstyled icon-list checkmark">
+                            <li>What security features does your desired ID card solution require?</li>
+                            <li>Bar codes</li>
+                            <li>Magnetic stripe encoding</li>
+                            <li>Proximity card technology</li>
+                        </ul>
+
+                    </div>
+                </div>
+
+            </div>
+            <!-- End ID Cards Printer Page Content-->
+
+
+            <!-- Interactive Boards Page Content-->
+            <div class="section" ng-show="Interactive_Boards">
+                <div class="row">
+                    <div class="col-md-7">
+                        <img src="../assets/images/products/inter_board/Interactive Boards.jpg" alt="..." class="img-responsive">
+                    </div>
+
+                    <div class="col-md-5">
+                        <h2>Interactive Boards</h2>
+                        <p>Interactive whiteboards designed for business use are a natural fit in companies large and small.
+                            Meetings and presentations are, all too often, inefficient and unproductive, and it usually has
+                            to do with the way information is being delivered.</p>
+                        <p>Dry erase boards, printed notes, idle talk – if company managers and trainers want to leave an
+                            impression, these are not the tools to do it with.</p>
+                        <p>More than ever, people respond to technology, so the best way to keep students and employees engaged
+                            is with a solution integrated by Data Projections. We specialize in the most robust boards on
+                            the market, including the popular SMART BOARD line of products.</p>
+                        <p>With SMART technology, our clients can improve their communications with the best interactive
+                            whiteboards designed for business.</p>
+                    </div>
+                </div>
+
+                <div class="line"></div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <h3>Some of the impressive features this technology offers include</h3>
+                        <p>Simple touch controls that eliminate the need to remain attached to a keyboard or other tool.
+                            A trainer or manager can navigate through a presentation with nothing but a simple flick, and
+                            with a camera tied to the system, a presenter doesn’t even have to make contact with the board.</p>
+                        <p>Excellent media sharing and presentation capabilities. Anything that can be displayed on a PC
+                            can be displayed through the system. That’s because the board is connected to a PC, and anything
+                            placed on the PC’s desktop is relayed through the projector. With a couple gestures, a presenter
+                            can share videos, high resolution images, and photos.</p>
+                        <p>Dynamic presentation quality that is much more engaging. With media and the Internet at the presenter’s
+                            fingertips, it will be much easier to keep meeting members focused on the discussion. A high
+                            quality display makes the task even easier.>
+                        </p>
+                        <p>Data Projections can help clients set up the perfect interactive whiteboards for their business,
+                            and ensure the system continues to meet expectations with ongoing support and maintenance.</p>
+                    </div>
+                    <div class="col-md-6">
+                        <img src="../assets/images/products/inter_board/Interactive Boards.png" class="img-responsive">
+                    </div>
+                </div>
+
+            </div>
+            <!-- End Interactive Boards Page Content-->
+
+
+            <!-- Scanners Page Content-->
+            <div class="section" ng-show="Scanners">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h2>Scanners</h2>
+                        <p>DDC provides you some of the best scanners that are reliable and highly efficient. We buy the
+                            best scanners from the most trustworthy manufacturers and deliver it you at a very considerable
+                            cost.
+                        </p>
+                        <p>We deliver scanners for various purposes and some of the major ones are,</p>
+                        <div class="row">
+                            <div class="col-sm-6 col-md-offset-3">
+                                <ul class="list-unstyled icon-list chevron-right" style="align-content: center">
+                                    <li>Document Scanners</li>
+                                    <li>Book Scanners</li>
+                                    <li>Microfilm Scanners?</li>
+                                    <li>Microfilm Creation</li>
+                                    <li>Duplication Equipment</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <img src="../assets/images/products/scanner/NeatConnect.jpg" class="img-responsive">
+                    </div>
+                </div>
+
+                <div class="line"></div>
+
+
+                <div class="row">
+                    <div class="col-sm-6">
+                        <img src="../assets/images/products/scanner/20160719024359.jpg" class="img-responsive">
+                    </div>
+
+                    <div class="col-sm-6">
+                        <h3>DDC provides you some of the best scanners that are reliable and highly efficient</h3>
+                        <ul class="list-unstyled icon-list checkmark">
+                            <li>Flatbed Scanners</li>
+                            <li>Sheet-fed Scanners</li>
+                            <li>Handheld Scanners?</li>
+                            <li>Drum scanners & Barcode scanners</li>
+                            <li>ADF Scanners</li>
+                            <li>2D & 3D Scanners</li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+            <!-- End Scanners Page Content-->
+
+            <!-- Telecommunication Page Content-->
+            <div class="section" ng-show="Telecommunication">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h2>Telecommunication</h2>
+                        <p>Our company is widely appreciated in providing Telecommunication Solution to the clients. Telecommunication
+                            Solution is rendered by experienced professionals using latest technological advancements as
+                            per the industry norms.
+                        </p>
+                        <p>This service is executed with proper planning and design so that valuable clients do not go unsatisfied.
+                            <p>
+                                <div class="row">
+                                    <div class="col-sm-6 col-md-offset-3">
+                                        <ul class="list-unstyled icon-list chevron-right" style="align-content: center">
+                                            <li>Quick and prompt service</li>
+                                            <li>Done As per client's specification</li>
+                                            <li>Applied latest methodology</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                    </div>
+                    <div class="col-md-6">
+                        <img src="../assets/images/products/telecom/Telecommunication2.jpg" class="img-responsive">
+                    </div>
+                </div>
+
+                <div class="line"></div>
+
+
+                <div class="row">
+                    <div class="col-sm-6">
+                        <img src="../assets/images/products/telecom/openstage-40-all-vl_2.jpg" class="img-responsive">
+                    </div>
+
+                    <div class="col-sm-6">
+                        <h3>DDC provides you some of the best service that are reliable and highly efficient</h3>
+                        <ul class="list-unstyled icon-list checkmark">
+                            <li>Corporate and academic wide-area networks (WANs</li>
+                            <li>Telephone networks</li>
+                            <li>Taxi dispatch networks</li>
+                            <li>Broadcast networks</li>
+                            <li>Circuit-switched data transmission services</li>
+                            <li>electronic data interchange</li>
+                        </ul>
+
+                    </div>
+                </div>
+
+            </div>
+            <!-- End Telecommunication Page Content-->
+
+
+            <!-- DeskAlert Software Page Content-->
+            <div class="section" ng-show="DeskAlert_Software">
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <h2>DeskAlert Software</h2>
+                        <p>DeskAlerts is a one-way desktop alert notification system that combines ease-of-use with Comprehensive
+                            security, tracking and customization options for fail-safe communications.
+                        </p>
+                        <p>Send the notifications to DeskAlerts Mobile applications for Android, Windows, iOS.
+                        </p>
+                        <p>Active Directory module is the single most used module of all. It enables companies to integrate
+                            their Active Directory structure with DeskAlerts. As a result, deployment drastically speeds
+                            up and publishers get convenient groups structure to target notifications</p>
+                    </div>
+                    <div class="col-md-6">
+                        <img src="../assets/images/products/desktopAlert/DeskAlert Software.png" class="img-responsive">
+                    </div>
+                </div>
+
+                <div class="line"></div>
+
+
+                <div class="row">
+                    <div class="col-sm-6">
+                        <img src="../assets/images/products/desktopAlert/f6eb324ba3859ff02f3b11c363282bdd.png" class="img-responsive">
+                    </div>
+
+                    <div class="col-sm-6">
+                        <h3>Our solutions:</h3>
+                        <ul class="list-unstyled icon-list checkmark">
+                            <li>Mobile devices support</li>
+                            <li>Reach employees worldwide</li>
+                            <li>User-friendly publisher interface</li>
+                            <li>Secure solution</li>
+                            <li>Convenient content grouping</li>
+                            <li>Multilingual editions</li>
+                        </ul>
+
+                    </div>
+                </div>
+
+            </div>
+            <!-- End DeskAlert Software Page Content-->
+
+
+        </div>
+    </div>
+
+
+    <!-- jQuery CDN -->
+    <script src="../assets/js/vendor/jquery-1.11.2.min.js"></script>
+    <!-- Bootstrap Js CDN -->
+    <script src="../assets/js/vendor/bootstrap.min.js"></script>
+    <script src="../assets/js/vendor/angular.js"></script>
+    <script src="../assets/js/app.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+            });
+            $('#sidebar ul li').on('click', function(){
+                $('#sidebar ul li').removeClass('active');
+                $(this).addClass('active');
+            });
+        });
+    </script>
+
+</body>
+
+</html>

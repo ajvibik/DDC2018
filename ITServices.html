@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Digital Dimension Computers</title>
+
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <!-- Our Custom CSS -->
+    <link rel="stylesheet" href="../assets/css/sidenavStyles.css">
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400|Crimson+Text' rel='stylesheet' type='text/css'>
+    <!-- <link rel="stylesheet" href="../assets/css/style.css"> -->
+    <script type="text/javascript" src="../assets/js/vendor/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="../assets/js/vendor/bootstrap.min.js"></script>
+ <style>
+    body{
+        font-family: 'montserratlight', arial, sans-serif;
+    }
+    .navbar, #sidebar, .sidebar-header{
+        background:#5e5c58 !important;
+    }
+    #content{
+        padding:0px 0px !important;
+    }
+    #content .section{
+        padding: 10px 10px;
+        text-align: justify;
+        margin-left: 2em;
+        margin-right: 2em;
+    }
+    .navbar-nav li{
+        color: rgb(255, 255, 255);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-left: none;
+    border-top: none;
+    border-top: none;
+    text-decoration: none;
+    zoom: 1;
+    font-size: 13px;
+    border-bottom: none !important;
+    }
+    .navbar-nav li:after{
+                border: none !important;
+        font-family: 'themify';
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    }
+    #sidebarCollapse{
+        background:#6d7fcc;
+    }
+    #sidebar ul.menu li:hover ul.submenu{
+        display: block;
+              -webkit-animation: slide-down .5s ease-out;
+    }
+    #sidebar ul.menu li ul.submenu{
+        display: none;
+    }
+
+@-webkit-keyframes slide-down {
+      0% { opacity: 0;  }   
+    100% { opacity: 1;  }
+}
+@-moz-keyframes slide-down {
+      0% { opacity: 0; }   
+    100% { opacity: 1;  }
+}
+#sidebar{
+    position: fixed;
+    width: 18vw;
+    height: 100vh;
+}
+#content{
+    position: fixed;
+    width: 82vw;
+    height: 100vh;
+    left: 18em;
+}
+section{
+    overflow-y: scroll;
+    height: 80vh;
+}
+    </style>
+</head>
+
+<body ng-app="DDCApp" ng-controller="DDCCtrl">
+    <div class="wrapper">
+        <!-- Sidebar Holder -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h3><img src="../assets/images/logo.png" class="img-responsive"></h3>
+                <strong>DDC</strong>
+            </div>
+
+            <ul class="list-unstyled menu components">
+                <li class="active">
+                    <a href="#">
+                        <i class="glyphicon glyphicon-home"></i>
+                        E-commerce
+                    </a>
+                    <ul class="submenu list-unstyled">
+                        <li ng-click="changeViewService('Magento')">
+                            <a href="#"></i>Magento</a>
+                        </li>
+                        <li ng-click="changeViewService('SAP_Hybris')">
+                            <a href="#">SAP Hybris</a>
+                        </li>
+                        <li ng-click="changeViewService('Demandware')">
+                            <a href="#">Demandware</a>
+                        </li>
+                        <li ng-click="changeViewService('Oracle_Commerce')">
+                            <a href="#">Oracle Commerce</a>
+                        </li>
+                    </ul>
+                </li>
+                <li ng-click="changeViewService('Oracle_Fusion_Middleware')">
+                    <a href="#">
+                        <i class="glyphicon glyphicon-lock"></i>
+                        Oracle Fusion Middleware
+                    </a>
+                </li>
+                <li ng-click="changeViewService('Mobility')">
+                    <a href="#">
+                        <i class="glyphicon glyphicon-lock"></i>
+                        Mobility
+                    </a>
+                </li>
+                <li ng-click="changeViewService('Salesforce')">
+                    <a href="#">
+                        <i class="glyphicon glyphicon-lock"></i>
+                        Salesforce - CRM
+                    </a>
+                </li>
+                <li ng-click="changeViewService('IOT')">
+                    <a href="#">
+                        <i class="glyphicon glyphicon-lock"></i>
+                        Internet of Things
+                    </a>
+                </li>
+                <li ng-click="changeViewService('Bigdata_Analytics')">
+                    <a href="#">
+                        <i class="glyphicon glyphicon-lock"></i>
+                        Bigdata and Analytics
+                    </a>
+                </li>
+                <li ng-click="changeViewService('Corporate_Training')">
+                    <a href="#">
+                        <i class="glyphicon glyphicon-lock"></i>
+                        Corporate Training
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Page Content Holder -->
+        <div id="content">
+
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+
+                    <div class="navbar-header">
+                        <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
+                            <i class="glyphicon glyphicon-align-left"></i>
+                        </button>
+                    </div>
+
+                    <div class="navbar-collapse" id="main-menu">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="../index.html">HOME</a></li>
+                            <li><a href="../index.html#client">CLIENTS</a></li>
+                            <li><a href="../pages/products.html">PRODUCTS</a></li>
+                            <li><a href="../pages/Infrastructure.html">INFRASTRUCTURE SOLUTIONS</a></li>
+                            <li><a href="#">IT SERVICES</a></li>
+                            <li><a href="../index.html#contact">CONTACT</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <section>
+            <!-- Magento Page Content-->
+            <div class="section" class="section" ng-show="Magento">
+
+                <div class="row">
+                    <div class="col-md-5">
+                        <h2>MAGENTO</h2>
+                        <p>Magento is the most popular platform used to design highly interactive ecommerce websites. With
+                            the help of this, cost effective ecommerce sites also known as online shopping portals can be
+                            delivered. It is open source development platform having inbuilt content management system, so
+                            managing products or services and content of the layout becomes quite easy with this platform.</p>
+                        <p>As this is loaded with dynamic features, it can establish and manage large dynamic online browsing
+                            carts and it also offers exceptional functionality of an online store. Customized online pages
+                            suiting to the particular business can be developed using It as it is the only platform which
+                            can create highly customizable pages.</p>
+                    </div>
+                    <div class="col-md-7">
+                        <img src="../assets/images/ITService/Magento/eCommerce.jpg" class="img-thumbnail img-responsive">
+                    </div>
+                </div>
+                <div class="line"></div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <img src="../assets/images/ITService/Magento/ecommerce-application-development.png" class="img-responsive">
+                    </div>
+                    <div class="col-md-6">
+                        <p>We expertise in e-commerce technology with time-proven methodologies and real-world contexts to
+                            design your requirements that increase revenue and brings life to your venture.</p>
+                        <h3>Our solutions:</h3>
+                        <ul class="list-unstyled icon-list chevron-right">
+                            <li>B2C eCommerce Solution</li>
+                            <li>Insurance</li>
+                            <li>E-Commerce</li>
+                            <li>Government</li>
+                            <li>Media</li>
+                            <li>Retail</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- Magento Page Content-->
+
+
+            <!--SAP Hybris Page Content-->
+            <div class="section" ng-show="SAP_Hybris">
+                <div class="row">
+                    <div class="col-md-7">
+                        <h2>SAP HYBRIS</h2>
+                        <p>Our omni-channel solutions help you to better understand your customers, operate across all touchpoints
+                            and to consistently and precisely control interactions. This significantly increases conversions
+                            and online sales – regardless of the channel, and improves the efficiency of administration and
+                            processing of orders and stock data in the background.
+                        </p>
+                        <p>Incorporates commerce for web, mobile and more for B2C and B2B, including powerful search and
+                            merchandising, master data management (MDM) / PIM, order management and web content management.
+                            Is built on a single stack of modern, standards-based, service-oriented technology.</p>
+                    </div>
+                    <div class="col-md-5">
+                        <img src="../assets/images/ITService/SAP/omni.png" class="img-responsive">
+                    </div>
+                </div>
+                <div class="line"></div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <img src="../assets/images/ITService/SAP/Key_benefits__pic1.png" class="img-responsive">
+                    </div>
+                    <div class="col-md-6">
+                        <p>Our year long domain experience and expertise entitle us to understand your SAP related requirements
+                            and fulfill in the shortest possible time. Our SAP offshore service is flourishing in the different
+                            countries, including Canada, Australia, Japan, China, USA, UAE, New Zealand and other Saudi Countries.</p>
+                        <h3>SAP SUPPORT SERVICE</h3>
+                        <ul class="list-unstyled icon-list chevron-right">
+                            <li>SAP OFFSHORE SUPPORT</li>
+                            <li>SAP SHARED SUPPORT</li>
+                            <li>SAP TECHNICAL SERVICES</li>
+                            <li>STAFF AUGMENTATION SERVICE</li>
+                            <li>SAP GST SERVICE</li>
+                            <li>SAP IMPLEMENTATION SERVICE</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+            <!-- End SAP Hybris Page Content-->
+
+
+            <!-- DEMANDWARE Page Content-->
+            <div class="section" ng-show="Demandware">
+
+                <div class="row ">
+                    <div class="col-md-7">
+                        <h2>DEMANDWARE</h2>
+                        <p>Take advantage of market opportunities faster with the speed and agility of the cloud. Launch
+                            new sites, create all-new consumer experiences, bring stores online, adopt new features, and
+                            integrate partner technologies in record time, without the usual complexities</p>
+                        <p>Launch new sites and explore new geographies quickly and easily with unified multisite management
+                            and build-in localization capabilities even when multiple brands, languages, and currencies are
+                            involved..
+                        </p>
+                        <P>Sell, service, and market faster with Salesforce. Commerce Cloud is an integral part of the Salesforce
+                            Intelligent Customer Success Platform that includes world-class solutions for marketing, customer
+                            service, community, and more.</P>
+                        </P>
+                    </div>
+                    <div class="col-md-5 ">
+                        <img src="../assets/images/ITService/Demandware/2015_08_18_16_32_18_dw_logo_DIGITAL_centered.png" class="img-responsive ">
+                    </div>
+
+                </div>
+
+                <div class="line "></div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <img src="../assets/images/ITService/Demandware/Sans-titre-5.png" class="img-responsive">
+                    </div>
+
+                    <div class="col-sm-6">
+                        <P>Deliver engaging B2B shopping experiences and provide corporate customers with essential B2B2C
+                            ecommerce functionality: Create intuitive order and checkout processes that support large order
+                            sizes and follow a business-to-consumer model.</P>
+                        <h3>Our solutions:</h3>
+                        <ul class="list-unstyled icon-list chevron-right">
+                            <li>Digital Features</li>
+                            <li>Multisite Management & Localization</li>
+                            <li>B2B Digital Commerce</li>
+                            <li>Government</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- End DEMANDWARE Page Content-->
+
+
+
+            <!-- Oracle Commerce Page Content-->
+            <div class="section" ng-show="Oracle_Commerce">
+
+                <div class="row">
+
+                    <div class="col-md-6">
+                        <h2>ORACLE COMMERCE</h2>
+                        <p>Oracle Commerce is specifically designed for the needs of any business selling products online
+                            that wants to deliver always-relevant experiences to buyers at any touch point in their purchase
+                            journey. Enabling selling experiences for the world's best B2C and B2B brands, the solution delivers
+                            best-in-class commerce applications focused on personalized experiences, business user enablement,
+                            and scalability to meet the evolving demands of commerce businesses.
+                        </p>
+                        <p>We deliver on the power of the Oracle ATG Web Commerce platform. Our qualified technology team
+                            develops strategies and solutions to leverage the capabilities of the platform and integrate
+                            it with other third party solutions, backend systems as well as provide a user experience that
+                            is pioneering and available on any device.</p>
+                    </div>
+                    <div class="col-md-6">
+                        <img src="../assets/images/ITService/Oracle_Commerce/oracle-commerce-cloud.png" alt="..." class="img-responsive">
+                    </div>
+                </div>
+
+
+                <div class="line"></div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <img src="../assets/images/ITService/Oracle_Commerce/b2b_b2c_ecommerce_platform_2.png" class="img-responsive">
+                    </div>
+                    <div class="col-sm-6">
+                        <P>We do a structured and detailed technical review of an ATG application, focused on the application
+                            architecture and environment, system interfaces and the development and release processes supporting
+                            the application. It is often conducted with a view to making application architecture changes
+                            or further software development releases to address specific application issues.
+                            </h3>
+                            <h3>Our solutions:</h3>
+                            <ul class="list-unstyled icon-list chevron-right">
+                                <li>Implementation & Upgradation</li>
+                                <li>Strategy & Consulting</li>
+                                <li>E-Commerce</li>
+                                <li>Audit & Recovery</li>
+                            </ul>
+                    </div>
+
+                </div>
+            </div>
+            <!-- End Oracle Commerce Page Content-->
+
+
+            <!-- ORACLE FUSION MIDDLEWARE Page Content-->
+            <div class="section" ng-show="Oracle_Fusion_Middleware">
+                <div class="row ">
+                    <div class="col-md-6">
+                        <img src="../assets/images/ITService/Oracle Fusion Middleware/SNAPIO_ORACLE.png" class="img-thumbnail img-responsive ">
+                    </div>
+                    <div class="col-md-6">
+                        <h2>ORACLE FUSION MIDDLEWARE</h2>
+                        <p>Oracle Fusion Middleware is the digital business platform for the enterprise and the cloud. It
+                            enables enterprises to create and run agile, intelligent business applications while maximizing
+                            IT efficiency through full utilization of modern hardware and software architectures.</p>
+                        </P>
+                    </div>
+
+                </div>
+
+                <div class="line"></div>
+
+                <div class="row">
+                    <div class="col-sm-6">
+                        <p>Oracle Cloud Platform as a Service (PaaS) enables developers to rapidly build and deploy cloud
+                            and mobile applications or extend Oracle Cloud SaaS applications.</p>
+                        <p>DDC’s Oracle Mobile simplifies enterprise mobility with a complete and flexible solution to develop
+                            your own unique mobile strategy.Oracle Content and Experience Management solutions power the
+                            next wave of productivity, mobile efficiency, and workcgroup innovation, offering an integrated
+                            suite of content, process, sites, and mobile cloud services</p>
+                    </div>
+                    <div class="col-md-6">
+                        <img src="../assets/images/ITService/Oracle Fusion Middleware/productoverview.gif" class="img-thumbnail img-responsive">
+                    </div>
+
+                </div>
+            </div>
+            <!-- End ORACLE FUSION MIDDLEWARE Page Content-->
+
+
+            <!-- Mobility Page Content-->
+            <div class="section" ng-show="Mobility">
+                <div class="row ">
+                    <div class="col-md-5">
+                        <h2>Mobility</h2>
+                        <p>We employ advanced methodologies and strategies to provide exceptional mobile app designs for
+                            native iOS, native android and hybrid platform. For hybrid application, we have outstanding expertise
+                            in react native and ionic platforms.</p>
+                        <p>We have a team of skilled designers, android developers and iOS developers who are technically
+                            proficient in adapting new evolution happening in the app industry. We guide our clients through
+                            the entire mobile solutions process to turn their raw app vision into a powerful smartphone app
+                            in App Stores.</p>
+                        </P>
+                    </div>
+                    <div class="col-md-7">
+                        <img src="../assets/images/ITService/mobility/mobility1.png" class="img-responsive ">
+                    </div>
+
+                </div>
+
+                <div class="line "></div>
+
+                <div class="row">
+                    <div class="col-md-5">
+                        <img src="../assets/images/ITService/mobility/mobility-services.png" class="img-responsive">
+                    </div>
+
+                    <div class="col-sm-7">
+                        <p>Our mobile app product development lifecycle begins with a mobile consulting and is followed by
+                            strategic plan, mobile UI/UX design, mobile app development, app testing, launch in app stores,
+                            app marketing and app maintenance & support.</p>
+                        <h3>Our solutions:</h3>
+                        <ul class="list-unstyled icon-list chevron-right">
+                            <li>IOS Native</li>
+                            <li>Android Native</li>
+                            <li>React Native</li>
+                            <li>Ionic</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- End Mobility Page Content-->
+
+            <!-- Salesforce Page Content-->
+            <div class="section" ng-show="Salesforce">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h2>SALESFORCE- CRM</h2>
+                        <p>Salesforce is much more than just a CRM solution. It brings together all your customer information
+                            in a single integrated platform that enables you to build a customer centred business from marketing
+                            right through to sales customer service and business analysis. This gives you more complete understanding
+                            of your customers to drive your business success. Thats why we call it the Customer Success Platform.
+                        </p>
+                        <p>CRM helps you ditch clunky processes and manual effort so you can get on with business. You find
+                            more leads, close more deals, keep more customers and grow your business. One place to store
+                            all customer information means your conversations are always personal, relevant, and up to date.
+                            Salesforce customers report 37% more sales revenue, 45% higher customer satisfaction, 43% better
+                            marketing ROI.
+                        </p>
+                        <p>This flexibility enables the organization to react quickly to new opportunities, reduce time to
+                            market, reduce cost and risk and better serve its customers</p>
+                    </div>
+                    <div class="col-md-6">
+                        <img src="../assets/images/ITService/Salesforce/CAS.png" class="img-responsive">
+                    </div>
+                </div>
+
+                <div class="line"></div>
+
+
+                <div class="row">
+                    <div class="col-sm-6">
+                        <img src="../assets/images/ITService/Salesforce/salesforce-graphic.png" class="img-responsive">
+                    </div>
+
+                    <div class="col-sm-6">
+                        <ul class="list-unstyled icon-list checkmark">
+                            <li>Actively tracks and manages customer information.</li>
+                            <li>Connects your entire team from any device.</li>
+                            <li>Intelligently captures customer emails.</li>
+                            <li>Simplifies repetitive tasks so you can concentrate.</li>
+                            <li>Delivers instant insights and recommendations.</li>
+                            <li>Extends and customises as your business grows.</li>
+                        </ul>
+
+                    </div>
+                </div>
+
+            </div>
+            <!-- End Salesforce Page Content-->
+
+
+            <!-- IoT Page Content-->
+            <div class="section" ng-show="IOT">
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <h2>Internet of Things (IoT)</h2>
+                        <p>The Internet of Things (IoT) is a system of interrelated computing devices, mechanical and digital
+                            machines, objects, animals or people that are provided with unique identifiers and the ability
+                            to transfer data over a network without requiring human-to-human or human-to-computer interaction.
+                        </p>
+                        <p>IoT begins with your things. Build with your things, from adding sensors to creating smart devices,
+                            to start your IoT solution.
+                        </p>
+                        <p>The Internet of Things is fast becoming a fixture in some industries, and the technologies for
+                            transformative business applications are at hand.</p>
+                        <p>Yet many organizations have been slow to recognize and act on these new opportunities.</p>
+                    </div>
+                    <div class="col-md-6">
+                        <img src="../assets/images/ITService/IoT/IoT.jpg" class="img-responsive">
+                    </div>
+                </div>
+
+                <div class="line"></div>
+
+
+                <div class="row">
+                    <div class="col-sm-6">
+                        <img src="../assets/images/ITService/IoT/IoT-3.3.png" class="img-responsive">
+                    </div>
+
+                    <div class="col-sm-6">
+                        <p>Deploy IoT solutions that control, monitor, and manage your things, allowing you to capture real-time
+                            data.Take the data you collect and apply advanced analytics to uncover new business insights.</p>
+                        <p>Transform insights into action through powerful applications creating new revenue and business
+                            opportunities.
+                        </p>
+                        <p>The interconnection via the Internet of computing devices embedded in everyday objects, enabling
+                            them to send and receive data.</p>
+                        <p>The internet of things, or IoT, is a system of interrelated computing devices, mechanical and
+                            digital machines, objects, animals or people that are provided with unique identifiers (UIDs)
+                            and the ability to transfer data over a network without requiring human-to-human or human-to-computer
+                            interaction. </p>
+                    </div>
+                </div>
+
+            </div>
+            <!-- End IoT Page Content-->
+
+            <!-- Bigdata Analytics Page Content-->
+            <div class="section" ng-show="Bigdata_Analytics">
+                <div class="row ">
+                    <div class="col-md-5">
+                        <h2>BIGDATA AND ANALYTICS</h2>
+                        <p>Big data analytics examines large amounts of data to uncover hidden patterns, correlations and
+                            other insights. With today technology its possible to analyze your data and get answers from
+                            it almost immediately an effort thats slower and less efficient with more traditional business
+                            intelligence solutions.</p>
+                        <p>Big data technologies such as Hadoop and cloud-based analytics bring significant cost advantages
+                            when it comes to storing large amounts of data plus they can identify more efficient ways of
+                            doing business.With the speed of Hadoop and in memory analytics, combined with the ability to
+                            analyze new sources of data, businesses are able to analyze information immediately and make
+                            decisions based on what they learned.</p>
+                        </P>
+                    </div>
+                    <div class="col-md-7">
+                        <img src="../assets/images/ITService/bigData/bigdata.jpeg" class="img-responsive ">
+                    </div>
+
+                </div>
+
+                <div class="line "></div>
+
+                <div class="row">
+                    <div class="col-md-5">
+                        <img src="../assets/images/ITService/bigData/Big_data_image.jpg" class="img-responsive">
+                    </div>
+
+                    <div class="col-sm-7">
+                        <p>With the ability to gauge customer needs and satisfaction through analytics comes the power to
+                            give customers what they want. Davenport points out that with big data analytics, more companies
+                            are creating new products to meet customers needs.</p>
+                        <h3>Our solutions:</h3>
+                        <ul class="list-unstyled icon-list chevron-right">
+                            <li>Built-in analytics</li>
+                            <li>Multi-Dimensional Scaling (MDS)</li>
+                            <li>Active-active global replication</li>
+                            <li>Enterprise-grade security</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- End Bigdata Analytics Page Content-->
+
+            <!-- Corporate Training Page Content-->
+            <div class="section" ng-show="Corporate_Training">
+                <div class="row ">
+                    <div class="col-md-7">
+                        <h2>CORPORATE TRAINING</h2>
+                        <p>DDC’s provide corporate training sessions that help employees of an organization to achieve their
+                            personal goalsin focused way with lot more success to transform the technology to next level.</p>
+                        <p>We provide training services for cutting edge web technologies like</p>
+                        </P>
+                        <div class="col-sm-6">
+                            <ul class="list-unstyled icon-list chevron-right">
+                                <li>React JS</li>
+                                <li>NodeJS</li>
+                                <li>Angular JS</li>
+                                <li>Angular2</li>
+                                <li>Angular 2+</li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-6">
+                            <ul class="list-unstyled icon-list chevron-right">
+                                <li>DevOps</li>
+                                <li>IOS</li>
+                                <li>Android Development</li>
+                                <li>Big Data</li>
+                                <li>Analytics etc</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <img src="../assets/images/ITService/training/traning.jpg" class="img-responsive ">
+                    </div>
+
+                </div>
+
+                <div class="line "></div>
+
+                <div class="row">
+                    <div class="col-md-5">
+                        <img src="../assets/images/ITService/training/traning1.jpg" class="img-responsive">
+                    </div>
+
+                    <div class="col-sm-7">
+                        <p>We have well experienced trainers who are veterans in the domain they operate.</p>
+                        <p>our training sessions. We believe the best training can bring the gem out of the best talent which
+                            will add value to the future technology.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- End Corporate TrainingPage Content-->
+
+            </section>
+        </div>
+    </div>
+
+
+    <!-- jQuery CDN -->
+    <script src="../assets/js/vendor/jquery-1.11.2.min.js"></script>
+    <!-- Bootstrap Js CDN -->
+    <script src="../assets/js/vendor/bootstrap.min.js"></script>
+    <script src="../assets/js/vendor/angular.js"></script>
+    <script src="../assets/js/app.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+            });
+            $('#sidebar ul li').on('click', function(){
+                $('#sidebar ul li').removeClass('active');
+                $(this).addClass('active');
+            });
+            $('#main-menu ul li').on('click',function(){
+                $('#main-menu ul li').removeClass('active');
+                $(this).addClass('active');
+            });
+        });
+    </script>
+
+</body>
+
+</html>

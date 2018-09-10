@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Digital Dimension Computers</title>
+
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <!-- Our Custom CSS -->
+    <link rel="stylesheet" href="../assets/css/sidenavStyles.css">
+    <!-- <link rel="stylesheet" href="../assets/css/style.css"> -->
+<link href='http://fonts.googleapis.com/css?family=Lato:300,400|Crimson+Text' rel='stylesheet' type='text/css'>
+    <!-- <link rel="stylesheet" href="../assets/css/style.css"> -->
+    <script type="text/javascript" src="../assets/js/vendor/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="../assets/js/vendor/bootstrap.min.js"></script> 
+    <style>
+    body{
+        font-family: 'montserratlight', arial, sans-serif;
+    }
+    .navbar, #sidebar, .sidebar-header{
+        background:#5e5c58 !important;
+    }
+    #content{
+        padding:0px 0px !important;
+    }
+    #content .section{
+        padding: 10px 10px;
+        text-align: justify;
+        margin-left: 2em;
+        margin-right: 2em;
+    }
+    .navbar-nav li{
+        color: rgb(255, 255, 255);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-left: none;
+    border-top: none;
+    border-top: none;
+    text-decoration: none;
+    zoom: 1;
+    font-size: 13px;
+    border-bottom: none !important;
+    }
+    .navbar-nav li:after{
+                border: none !important;
+        font-family: 'themify';
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    }
+    #sidebarCollapse{
+        background:#6d7fcc;
+    }
+
+    #sidebar ul.menu li:hover ul.submenu{
+
+    }
+    /*#sidebar ul.menu li:hover ul.submenu{
+        display: block;
+              -webkit-animation: slide-down .5s ease-out;
+    }*/
+    #sidebar ul.menu li ul.submenu{
+        display: none;
+    }
+
+@-webkit-keyframes slide-down {
+      0% { opacity: 0;  }   
+    100% { opacity: 1;  }
+}
+@-moz-keyframes slide-down {
+      0% { opacity: 0; }   
+    100% { opacity: 1;  }
+}
+#sidebar{
+    position: fixed;
+    width: 18vw;
+    height: 100vh;
+}
+#content{
+    position: fixed;
+    width: 82vw;
+    height: 100vh;
+    left: 18em;
+}
+section{
+    overflow-y: scroll;
+    height: 80vh;
+}
+    </style>
+</head>
+
+<body ng-app="DDCApp" ng-controller="DDCCtrl">
+    <div class="wrapper">
+        <!-- Sidebar Holder -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h3><img src="../assets/images/logo.png" class="img-responsive"></h3>
+                <strong>DDC</strong>
+            </div>
+
+         
+            <ul class="list-unstyled menu components">
+                <li class="active">
+                    <a href="#servicesmenu">
+                        <i class="glyphicon glyphicon-wrench"></i>
+                        Services
+                    </a>
+                    <ul class="submenu list-unstyled" id="servicesmenu">
+                        <li ng-click="changeViewInfra('Data_Center')">
+                            <a href="#"></i>Data Center</a>
+                        </li>
+                        <li ng-click="changeViewInfra('Structured_Cabling')">
+                            <a href="#">Structured Cabling</a>
+                        </li>
+                        <li ng-click="changeViewInfra('CCTV_Surveillance')">
+                            <a href="#">CCTV Surveillance</a>
+                        </li>
+                        <li ng-click="changeViewInfra('IP_Telephony_Solutions')">
+                            <a href="#">IP Telephony Solutions</a>
+                        </li>
+                        <li ng-click="changeViewInfra('Managed_WiFi')">
+                            <a href="#">Managed Wi-Fi</a>
+                        </li>
+                        <li ng-click="changeViewInfra('VPN_UTM_Solution')">
+                            <a href="#">VPN & UTM Solution</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#solutionMenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                        <i class="glyphicon glyphicon-leaf"></i>
+                        Solution
+                    </a>
+                    <ul class="collapse list-unstyled" id="solutionMenu">
+                        <li ng-click="changeViewInfra('eBusiness_Solutions')">
+                            <a href="#">E-Business Solutions</a>
+                        </li>
+                        <li ng-click="changeViewInfra('Integrated_Solutions')">
+                            <a href="#">Integrated Solutions</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Page Content Holder -->
+        <div id="content">
+
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+
+                    <div class="navbar-header">
+                        <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
+                            <i class="glyphicon glyphicon-align-left"></i>
+                        </button>
+                    </div>
+
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="../index.html">HOME</a></li>
+                            <li><a href="../index.html#client">CLIENTS</a></li>
+                            <li><a href="../pages/products.html">PRODUCTS</a></li>
+                            <li><a href="#">INFRASTRUCTURE SOLUTIONS</a></li>
+                            <li><a href="../pages/ITServices.html">IT SERVICES</a></li>
+                            <li><a href="#../index.html#contact">CONTACT</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <SECTION>
+
+            <!-- Data Center Page Content-->
+            <div class="section" ng-show="Data_Center">
+
+                <div class="row">
+                    <div class="col-md-7">
+                        <img src="../assets/images/infra/data_center/infra.jpg" class="img-responsive">
+                    </div>
+                    <div class="col-md-5">
+                        <h2>DATACENTER</h2>
+                        <p>As a pioneer in providing comprehensive and effective web hosting solutions to SMBs and large
+                            enterprises, DDC strives to alleviate the risks of businesses with regard to data loss and data
+                            theft. We provide web hosting solutions that are backed by best in class tier III data centers
+                            located in Noida and Jaipur. Our aim is to provide data center services that demonstrate to help
+                            enterprises establish agile business solutions.</p>
+                        <p>With our data center services by your side, you can reap the benefits of scalability, redundancy
+                            and security of your IT infrastructure, resulting in meeting and exceeding existing and future
+                            technology needs.</p>
+                    </div>
+                </div>
+                <div class="line"></div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>A Sneak Peek into the Facilities Available at Each of Our Data Center</p>
+                        <p>Each of our data center is featured with optimal power solutions, temperature stability technique,
+                            99.95% guaranteed network uptime along with high-end security technologies such as electronic
+                            access control to ensure robustness.</p>
+                        <p>This clearly demonstrates that by choosing our data center, you can mitigate the risks of data
+                            loss without maximizing your current technology investments.</p>
+                        <p>Our data center services are designed keeping in mind current business landscape and technological
+                            needs so as to encourage you to take a giant leap in your business endeavors</p>
+
+                    </div>
+                    <div class="col-md-6">
+                        <img src="../assets/images/infra/data_center/3d-man-growing-data-center.jpg" class="img-responsive">
+                    </div>
+                </div>
+            </div>
+            <!-- End Data Center Page Content-->
+
+
+            <!--Structured Cabling Page Content-->
+            <div class="section" ng-show="Structured_Cabling">
+                <div class="row">
+                    <div class="col-md-7">
+                        <h2>Structured Cabling</h2>
+                        <p>Our team of professionals provide cabling infrastructure systems, installation and design for
+                            projects that are as small as a single floor office or as complex as a multi-building campus
+                            environment.
+                        </p>
+                        <p>We excel in the Multi Dwelling Unit (MDU) market, hotels, condominiums, apartments and office
+                            buildings. Our experience and focus also extends to medical facilities, call centers, educational
+                            campuses, government centers and convention centers.</p>
+                    </div>
+                    <div class="col-md-5">
+                        <img src="../assets/images/infra/Structured_Cabling/cabling.jpg" class="img-responsive">
+                    </div>
+                </div>
+                <div class="line"></div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <img src="../assets/images/infra/Structured_Cabling/Office-Cabling-Services.png" class="img-responsive">
+                    </div>
+                    <div class="col-md-6">
+                        <h3>DDC is continually working to introduce new products, solutions and processes to deliver the
+                            following:
+                        </h3>
+                        <p>Our team of qualified engineers helps customers design projects from inception till the conclusion
+                            with tremendous cost savings and quality products.</p>
+                        <p>We achieve cutting-edge, high-performance cabling infrastructure systems</p>
+                        <p>We continually negotiate with our product manufacturers to get the best warranties available in
+                            the current market.</p>
+                    </div>
+
+                </div>
+            </div>
+            <!-- End Structured Cabling Page Content-->
+
+
+            <!-- CCTV SURVEILLANCE Page Content-->
+            <div class="section" ng-show="CCTV_Surveillance">
+
+                <div class="row ">
+                    <div class="col-md-7 ">
+                        <h2>Data Protection is an essential component</h2>
+                        <p>We provide cost effective evidence quality CCTV surveillance systems tailor-made to meet your
+                            requirements. We install systems using the right equipment for your requirements and needs, manufactured
+                            by UTC, Eye Lynx, Hikvision, Panasonic, Samsung, Genie, Pelco, Dedicated Micros, Wavestore and
+                            many more.</p>
+                        <p> If you are looking for a sensibly priced digital CCTV system, look no further than DDC, the name
+                            you can trust.</p>
+                        <P>Not only are we a top supplier and installation contractor of digital CCTV systems in the UAE,
+                            we are also unsurpassed in our commitment to offer 1st class user support and maintenance for
+                            all installed equipment and software.</P>
+                        </P>
+                    </div>
+                    <div class="col-md-5 ">
+                        <img src="../assets/images/infra/CCTV_Surveillance/cc-camera-3-600x502.png" class="img-thumbnail img-responsive ">
+                    </div>
+
+                </div>
+
+                <div class="line "></div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <img src="../assets/images/infra/CCTV_Surveillance/tres-anos-garantia-sistemas-cctv-alarma-hyundai.png" class="img-thumbnail img-responsive">
+                    </div>
+
+                    <div class="col-sm-6">
+                        <P>Being part of the security companies gives you even more reason to 'rest easy' in the knowledge
+                            you have bought from an accredited, trustworthy and reliable company</P>
+                        <h3>Our CCTV camera are facilities include:</h3>
+                        <ul class="list-unstyled icon-list chevron-right">
+                            <li>Integrated CCTV</li>
+                            <li>Remote Monitoring</li>
+                            <li>Face recognition</li>
+                            <li>Number plate recognition</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- End CCTV SURVEILLANCE Page Content-->
+
+
+
+            <!-- IP Telephony Solutions Page Content-->
+            <div class="section" ng-show="IP_Telephony_Solutions">
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <img src="../assets/images/infra/IP_Telephony/IP8841-large.jpg" alt="..." class="img-responsive">
+                    </div>
+                    <div class="col-md-6">
+                        <h2>IP TELEPHONY SOLUTIONS</h2>
+                        <p>IP telephony is an absolute system that offers telephone calls over IP data networks. IP Telephony
+                            transmits voice communication over the network using Internet Protocol. We offer our customers
+                            IP Telephony solutions from leading manufacturers like CISCO, AVAYA and Mitel.</p>
+                        <p>We take pride in delivering this system that not only provides innovative communication features,
+                            but also delivers a substantial dose of worry-free scalability and robustness. Another noteworthy
+                            benefit is that, upgrading day-to-day business communication to this most advanced voice and
+                            data network is a breeze, as the IP PBX can connect to traditional PSTN lines through optional
+                            gateway.
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="line"></div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>DDC delivers a path for organizations to extend consistent and dependable voice communication
+                            services to employees in their workspaces by using the corporate IP network
+                        </p>
+                        <p>IP Telephony is essential for Unified Communication solutions that combine voice, video, data,
+                            and mobile applications on fixed and mobile networks. They let employees talk with each other
+                            using almost any medium, device, or operating system. Diverse range of organizations can gain
+                            the inherent benefits of using a converged network for transport and interconnection, using its
+                            network as the platform.</p>
+                    </div>
+                    <div class="col-md-6">
+                        <img src="../assets/images/infra/IP_Telephony/conmutadores.png" class="img-responsive">
+                    </div>
+                </div>
+            </div>
+            <!-- End IP Telephony Solutions Page Content-->
+
+
+            <!-- Managed WiFi Page Content-->
+            <div class="section" ng-show="Managed_WiFi">
+                <div class="row ">
+                    <div class="col-md-7 ">
+                        <h2>MANAGED WIFI</h2>
+                        <p>Due to intense competition, stores, banks, hospitals, restaurants and branch offices are all evolving
+                            into technology-enabled hubs that are designed to help improve the customer experience and drive
+                            customer loyalty.</p>
+                        <p>Wi-Fi attracts, engages and retains customers; it enhances employee productivity. But, managing
+                            and securing a private Wi-Fi network while also enabling a Wi-Fi layer with a quality end user
+                            experience requires substantial attention and resources to implement and maintain.king for a
+                            sensibly priced digital CCTV system, look no further than DDC, the name you can trust.</p>
+                        <P>Basic, Advanced, Premium and Custom Services</P>
+                        </P>
+                    </div>
+                    <div class="col-md-5 ">
+                        <img src="../assets/images/infra/Managed_WiFi/wifi-devices.jpg" class="img-thumbnail img-responsive ">
+                    </div>
+
+                </div>
+
+                <div class="line "></div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <img src="../assets/images/infra/Managed_WiFi/header_hardware2.jpg" class="img-thumbnail img-responsive">
+                    </div>
+
+                    <div class="col-sm-6">
+                        <h3>We offer three levels of Managed Wi-Fi, depending on your business needs</h3>
+                        <ul class="list-unstyled icon-list chevron-right">
+                            <li>Managed Wi-Fi Basic</li>
+                            <li>Managed Wi-Fi Advanced</li>
+                            <li>Managed Wi-Fi Premium</li>
+                            <li>Managed Wi-Fi Custom</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- End Managed WiFi Page Content-->
+
+
+            <!-- VPN & UTM Solution Page Content-->
+            <div class="section" ng-show="VPN_UTM_Solution">
+                <div class="row ">
+                    <div class="col-md-6">
+                        <h2>VPN & UTM Solution</h2>
+                        <p>DDC has committed itself to provide network security solutions for your midsized or small company.
+                            As an authorized reseller of, DDC can offer network security solutions that suits your company’s
+                            needs and your budget.</p>
+                        <p>While the Internet offers small and medium businesses significant advantages, it also raises security
+                            concerns. DDC delivers robust, affordable and easily manageable Internet security solutions to
+                            protect the network resources of branch offices and small businesses.</p>
+                        </P>
+                    </div>
+                    <div class="col-md-6">
+                        <img src="../assets/images/infra/VPN_UTM/vpn.png" class="img-thumbnail img-responsive ">
+                    </div>
+
+                </div>
+
+                <div class="line "></div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <img src="../assets/images/infra/VPN_UTM/UTM-SOLUTIONS.png" class="img-thumbnail img-responsive">
+                    </div>
+
+                    <div class="col-sm-6">
+                        <h3>We offer three levels of Managed Service, depending on your business needs</h3>
+                        <p>DDC’s scalable security provides secure data communications and protects online transactions with
+                            a solution that your business won’t outgrow.</p>
+                        <ul class="list-unstyled icon-list chevron-right">
+                            <li>DDC Deep Packet Inspection Firewall Solution</li>
+                            <li>DDC Unified Threat Management (UTM) Solutions
+                            </li>
+                            <li>DDC Virtual Private Network (VPN) Solutions</li>
+                            <li>Managed Wi-Fi Custom</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- End VPN & UTM Solution Page Content-->
+
+            <!-- E-Business Solutions Page Content-->
+            <div class="section" ng-show="eBusiness_Solutions">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h2>E-Business Solutions</h2>
+                        <p>Unparalleled opportunities exist to expand markets, increase efficiency, reduce costs, and offer
+                            customers and partners seamless access to information. To capitalize on these opportunities,
+                            organizations worldwide-including many of your competitors and suppliers-are turning to e-Business
+                            as a competitive necessity.
+                        </p>
+                        <h3>Flexibility for Adding and Changing Resources</h3>
+                        <p>E-Business requirements are unique for every company. Depending on your IT environment and business
+                            needs the software allows business processes to be integrated in such a way that the resulting
+                            system can deliver accurate, reliable information in real time.
+                        </p>
+                        <p>This flexibility enables the organization to react quickly to new opportunities, reduce time to
+                            market, reduce cost and risk and better serve its customers</p>
+                    </div>
+                    <div class="col-md-6">
+                        <img src="../assets/images/infra/e-business/eBusiness1.jpg" class="img-responsive">
+                    </div>
+                </div>
+
+                <div class="line"></div>
+
+
+                <div class="row">
+                    <div class="col-sm-6">
+                        <img src="../assets/images/infra/e-business/ecommerce-application-development.png" class="img-responsive">
+                    </div>
+
+                    <div class="col-sm-6">
+                        <h3>Scalability and Security for e Business Transactions</h3>
+                        <p>E-Business must scale across multiple computing systems, departments, organizations and geographies.
+                            It should enables incremental integration, starting with small pilot programs, then deploying
+                            across departments, divisions or countries. Direct integration between two or more independent
+                            entities across the Internet can be supported with all necessary security, authorization and
+                            access control.</p>
+                        <h3>e-Business benefits include:</h3>
+                        <ul class="list-unstyled icon-list checkmark">
+                            <li>Open Platform for Rapid Implementation</li>
+                            <li>custom point-to-point integration</li>
+                            <li>Faster time-to-market</li>
+                        </ul>
+
+                    </div>
+                </div>
+
+            </div>
+            <!-- End E-Business Solutions Page Content-->
+
+
+            <!-- Integrated_Solutions Page Content-->
+            <div class="section" ng-show="Integrated_Solutions">
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <h2>Integrated Solutions</h2>
+                        <p>The IT landscape has evolved into a highly fragmented ecosystem consisting of numerous cloud,
+                            SaaS, and mobile applications and services. These applications must find a means to create connectivity
+                            with on-premises systems and databases to ensure seamless connectivity throughout the New Enterprise.
+                        </p>
+                        <p>Businesses need more than a simple systems integration tool for their enterprise connectivity
+                            needs, they need a complete integration solution to support their business ecosystem.
+                        </p>
+                        <p>This flexibility enables the organization to react quickly to new opportunities, reduce time to
+                            market, reduce cost and risk and better serve its customers</p>
+                    </div>
+                    <div class="col-md-6">
+                        <img src="../assets/images/infra/Integrated_Solutions/integration.jpg" class="img-responsive">
+                    </div>
+                </div>
+
+                <div class="line"></div>
+
+
+                <div class="row">
+                    <div class="col-sm-6">
+                        <img src="../assets/images/infra/Integrated_Solutions/transitioning-to-cloud-based-solutions-within-the-clinical-research-industry-291642.png"
+                            class="img-responsive">
+                    </div>
+
+                    <div class="col-sm-6">
+                        <h3>DDC offers comprehensive integration solutions tailored to fit the specific industry needs and
+                            use cases of businesses</h3>
+                        <p>DDC provides organizations integration solutions tailored to their specific needs, regardless
+                            of what industry they may be in or what their use case might be. Below is a sampling of some
+                            of the industries.</p>
+                            <h3>Industries:</h3>
+                        <ul class="list-unstyled icon-list checkmark">
+                            <li>Healthcare</li>
+                            <li>Insurance</li>
+                            <li>E-Commerce</li>
+                            <li>Government</li>
+                            <li>Media</li>
+                            <li>Retail</li>
+                        </ul>
+
+                    </div>
+                </div>
+
+            </div>
+            <!-- End Integrated Solutions Page Content-->
+</SECTION>
+
+        </div>
+    </div>
+
+
+    <!-- jQuery CDN -->
+    <script src="../assets/js/vendor/jquery-1.11.2.min.js"></script>
+    <!-- Bootstrap Js CDN -->
+    <script src="../assets/js/vendor/bootstrap.min.js"></script>
+    <script src="../assets/js/vendor/angular.js"></script>
+    <script src="../assets/js/app.js"></script>
+    <script src="../assets/js/vendor/bootstrap-dropdownhover.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+            });
+            $('#sidebar ul.menu li').on('click', function(e){
+                console.log($(this.children[1]).css('display'));
+               $(this.children[1]).css('display', $(this.children[1]).css('display') == 'block'? 'none':'block'); 
+            });
+        });
+    </script>
+
+</body>
+
+</html>
